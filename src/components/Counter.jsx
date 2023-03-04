@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 export default function Counter() {
 
   const [count, setCount] = useState(0);
-  const [dynamicClass, setDynamicClass] = useState('text');
   const [color, setColor] = useState('')
 
   useEffect(()=>{
@@ -11,7 +10,7 @@ export default function Counter() {
     setCount(randomNum)
     return ()=>{
       setCount(0)
-      setDynamicClass('text')
+      setColor('text')
       console.log('All clean here. Count:', count, 'Class:', dynamicClass);
     }
   },[])
@@ -24,8 +23,7 @@ export default function Counter() {
     } else {
       setColor('green')
     }
-    
-  },[count, dynamicClass])
+  },[count])
 
 const handleIncrease =()=>{
   setCount(prev=>prev+1)
